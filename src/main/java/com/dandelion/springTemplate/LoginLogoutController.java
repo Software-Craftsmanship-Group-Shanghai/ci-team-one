@@ -57,7 +57,14 @@ public class LoginLogoutController {
         String password = request.getParameter("j_password");
         
         //TODO register 
-        
+		if (error == true) {
+			// Assign an error message
+			model.put("error",
+					"Register failed!");
+		} else {
+			model.put("error", "");
+		}
+		
         return "loginpage";
     }
 

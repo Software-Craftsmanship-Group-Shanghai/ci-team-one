@@ -61,7 +61,7 @@
 
 	<div id="register-error" style="color:red;">${error}</div>
 
-	<form id="register_form" action="/springTemplate/auth/registering" method="post">
+	<form id="register_form" action="/springTemplate/auth/registering?error=true" method="post">
 
 		<p>
 			<label for="j_username">Username</label> <input id="j_username"
