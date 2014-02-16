@@ -216,6 +216,7 @@ pip-log.txt
 
 #AS
 .gradle/*
-.idea/*
+.idea/
 build/*
 *.iml
+target/
