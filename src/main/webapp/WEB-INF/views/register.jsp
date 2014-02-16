@@ -12,14 +12,27 @@
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
-	function validateEmail(sEmail) {
+    var showRegisterError = function(errmsg) {
+        $('#register-error').text(errmsg);
+    }
+	var validateEmail = function(sEmail) {
 		var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 		if (filter.test(sEmail)) {
 			return true;
 		} else {
 			return false;
 		}
-	}
+    }
+    var validatePassword = function(password) {
+        var PASSWORD_PATTERN = /^[A-Za-z0-9]{8,}$/;
+        return PASSWORD_PATTERN.test();
+    };
+    var confirmPassword = function(password, confirmPassword) {
+        return password === confirmPassword;
+    };
+    var validateAll = function() {
+        var errmsg = '';
+    };
 	$(document).ready(function() {
 		$('#submitButton').click(function() {
 			var sEmail = $('#j_username').val();
@@ -45,7 +58,7 @@
 
 	<h1>Register</h1>
 
-	<div id="login-error">${error}</div>
+	<div id="register-error">${error}</div>
 
 	<form action="/springTemplate/auth/registering" method="post">
 
