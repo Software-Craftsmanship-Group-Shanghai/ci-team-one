@@ -16,7 +16,7 @@
 
 	<div id="login-error">${error}</div>
 
-	<form action="/auth/logining" method="post">
+	<form action="/springTemplate/auth/logining" method="post">
 
 		<p>
 			<label for="j_username">Username</label> <input id="j_username"
