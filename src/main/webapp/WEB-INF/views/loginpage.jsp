@@ -9,6 +9,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+    }
+    $(document).ready(function() {
+            $('#submitButton').click(function() {
+                var sEmail = $('#j_username').val();
+                if ($.trim(sEmail).length == 0) {
+                    alert('Please enter valid email address');
+                    return false;
+                }
+                if (!validateEmail(sEmail)) {
+                    alert('Invalid Email Address');
+                    return false;
+                    }
+                    var sPassword = $('#j_password').val();
+                    if ($.trim(sPassword).length == 0) {
+                    alert('Please enter valid password');
+                    return false;
+                }
+                });
+                
+            });
+            
+</script>
 </head>
 <body>
 
@@ -25,10 +57,10 @@
 
 		<p>
 			<label for="j_password">Password</label> <input id="j_password"
-				name="j_password" type="password" />
+            name="j_password" type="password" />
 		</p>
 
-		<input type="submit" value="Login" />
+		<input id="submitButton" type="submit" value="Login" />
 
 	</form>
 
