@@ -37,7 +37,8 @@ public class LoginLogoutController {
         model.put("serverTime","login sucessful");
         String name = request.getParameter("j_username");
         String password = request.getParameter("j_password");
-        if(name.equals("admin@gmail.com") && password.equals("admin")) {
+        ProcessUser processor = new ProcessUserImpl();
+        if(processor.validateUserIsEffictive(name, password)) {
         	return "home";
         } else {
         	return "errorpage";
