@@ -36,9 +36,12 @@ public class LoginLogoutController {
             ModelMap model, WebRequest request) {
         model.put("serverTime","login sucessful");
         String name = request.getParameter("j_username");
-        System.out.println(name);
-        logger.info(name);
-        return "home";
+        String password = request.getParameter("j_password");
+        if(name.equals("admin@gmail.com") && password.equals("admin")) {
+        	return "home";
+        } else {
+        	return "errorpage";
+        }
     }
 
 	/**

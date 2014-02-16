@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Admin Page</h1>
-	<p>管理员页面</p>
-	<a href="/springSecurityTemplate/auth/login">退出登录</a>
+	<h1>error</h1>
+	<p>密码错误</p>
+	<a href="/springTemplate/auth/login">重新登录</a>
 </body>
 </html>
