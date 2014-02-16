@@ -1,15 +1,18 @@
 package com.dandelion.springTemplate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 @RequestMapping("auth")
 public class LoginLogoutController {
-
+    private static final Logger logger = LoggerFactory.getLogger(LoginLogoutController.class);
 
 	/**
 	 * 指向登录页面
@@ -30,8 +33,11 @@ public class LoginLogoutController {
     @RequestMapping(value = "/logining", method = RequestMethod.POST)
     public String login(
             @RequestParam(value = "error", required = false) boolean error,
-            ModelMap model) {
+            ModelMap model, WebRequest request) {
         model.put("serverTime","login sucessful");
+        String name = request.getParameter("j_username");
+        System.out.println(name);
+        logger.info(name);
         return "home";
     }
 
