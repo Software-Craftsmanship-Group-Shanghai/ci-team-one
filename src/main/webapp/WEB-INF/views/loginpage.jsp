@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
+<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script>
     function validateEmail(sEmail) {
@@ -43,7 +44,7 @@
 </script>
 </head>
 <body>
-
+    <div class="container">
 	<h1>Login</h1>
 
 	<div id="login-error">${error}</div>
@@ -65,6 +66,6 @@
 		
 		
 	</form>
-
+    </div>
 </body>
-</html>
+</html>>
