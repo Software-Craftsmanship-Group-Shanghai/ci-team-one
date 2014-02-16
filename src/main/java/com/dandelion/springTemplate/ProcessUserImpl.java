@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ProcessUserImpl implements ProcessUser {
 
-	static final String PATH = "D:\\user.txt";
+	static final String PATH = "user.txt";
 	public void registerUser(String username, String password) {
 		String newContent = username + "|" + password + "|" + "0";
 		String path = PATH;
