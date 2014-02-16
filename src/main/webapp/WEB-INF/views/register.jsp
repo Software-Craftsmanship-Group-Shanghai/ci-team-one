@@ -24,33 +24,34 @@
 		}
     }
     var validatePassword = function(password) {
-        var PASSWORD_PATTERN = /^[A-Za-z0-9]{8,}$/;
-        return PASSWORD_PATTERN.test();
+        return password !== ''; 
     };
     var confirmPassword = function(password, confirmPassword) {
         return password === confirmPassword;
     };
-    var validateAll = function() {
-        var errmsg = '';
+    var validateForm = function() {
+        var email = $('#j_username').val().trim(),
+            password = $('#j_password').val().trim(),
+            confirmPass = $('#j_confirm_password').val().trim();
+        if (!validateEmail(email)) {
+            showRegisterError('Please input correct email.');
+            return false;
+        }
+        if (!validatePassword(password)) {
+            showRegisterError('Please input password');
+            return false;
+        }
+        if (!confirmPassword(password, confirmPass)) {
+            showRegisterError('Please make sure two password match.');
+            return false;
+        }
+        return true;
     };
 	$(document).ready(function() {
-		$('#submitButton').click(function() {
-			var sEmail = $('#j_username').val();
-			if ($.trim(sEmail).length == 0) {
-				alert('Please enter valid email address');
-				return false;
-			}
-			if (!validateEmail(sEmail)) {
-				alert('Invalid Email Address');
-				return false;
-			}
-			var sPassword = $('#j_password').val();
-			if ($.trim(sPassword).length == 0) {
-				alert('Please enter valid password');
-				return false;
-			}
-		});
 
+        $('#register_form').on('submit', function() {
+            return validateForm();
+        });
 	});
 </script>
 </head>
@@ -58,9 +59,9 @@
 
 	<h1>Register</h1>
 
-	<div id="register-error">${error}</div>
+	<div id="register-error" style="color:red;">${error}</div>
 
-	<form action="/springTemplate/auth/registering" method="post">
+	<form id="register_form" action="/springTemplate/auth/registering" method="post">
 
 		<p>
 			<label for="j_username">Username</label> <input id="j_username"
@@ -72,8 +73,8 @@
 				name="j_password" type="password" />
 		</p>
 		<p>
-			<label for="j_password">Again</label> <input id="j_password"
-				name="j_password" type="password" />
+			<label for="j_confirm_password">Again</label> <input id="j_confirm_password"
+				name="j_confirm_password" type="password" />
 		</p>
 
 		<input id="submitButton" type="submit" value="Register" />
