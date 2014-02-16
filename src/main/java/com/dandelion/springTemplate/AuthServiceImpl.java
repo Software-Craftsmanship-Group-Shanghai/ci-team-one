@@ -1,4 +1,4 @@
-package java.com.dandelion.springTemplate;
+package com.dandelion.springTemplate;
 
 public class AuthServiceImpl implements  AuthService {
 
