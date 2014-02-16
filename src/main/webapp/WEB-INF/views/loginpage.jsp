@@ -61,7 +61,9 @@
 		</p>
 
 		<input id="submitButton" type="submit" value="Login" />
-
+		<a href="/springTemplate/auth/register">No account? Get started here.</a>
+		
+		
 	</form>
 
 </body>

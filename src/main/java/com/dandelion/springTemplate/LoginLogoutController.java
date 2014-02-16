@@ -43,6 +43,23 @@ public class LoginLogoutController {
         	return "errorpage";
         }
     }
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    public String registerPage(
+            @RequestParam(value = "error", required = false) boolean error,
+            ModelMap model, WebRequest request) {
+    	return "register";
+    }
+    @RequestMapping(value = "/registering", method = RequestMethod.POST)
+    public String register(
+            @RequestParam(value = "error", required = false) boolean error,
+            ModelMap model, WebRequest request) {
+        String name = request.getParameter("j_username");
+        String password = request.getParameter("j_password");
+        
+        //TODO register 
+        
+        return "loginpage";
+    }
 
 	/**
 	 * 指定无访问额权限页面
