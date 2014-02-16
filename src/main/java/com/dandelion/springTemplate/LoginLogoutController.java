@@ -65,7 +65,7 @@ public class LoginLogoutController {
 			model.put("error", "");
 		}
 		
-        return "loginpage";
+        return "register";
     }
 
 	/**
